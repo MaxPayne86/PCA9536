@@ -123,7 +123,7 @@ __asm volatile ("nop");
 #define PCA9536_h
 
 #if !defined(ARDUINO_ARCH_AVR)
-#error “The PCA9536 library only supports AVR processors.”
+#warning “The PCA9536 library only supports AVR processors.”
 #endif
 
 #include <Arduino.h>
