@@ -146,7 +146,7 @@ namespace Pca9536 {
         REG_INPUT    = 0,      // default
         REG_OUTPUT   = 1,
         REG_POLARITY = 2,
-        REG_CONFIG   = 3
+        REG_CONFIG_PCA   = 3
     } reg_ptr_t;
 
     typedef enum:byte {

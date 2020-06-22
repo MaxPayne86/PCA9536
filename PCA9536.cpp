@@ -68,7 +68,7 @@ byte PCA9536::ping() {
  *==============================================================================================================*/
 
 byte PCA9536::getMode(pin_t pin) {
-    return getPin(pin, REG_CONFIG);
+    return getPin(pin, REG_CONFIG_PCA);
 }
 
 /*==============================================================================================================*
@@ -92,7 +92,7 @@ byte PCA9536::getPolarity(pin_t pin) {
  *==============================================================================================================*/
 
 void PCA9536::setMode(pin_t pin, mode_t newMode) {                           // PARAMS: IO0 / IO1 / IO2 / IO3
-    setPin(pin, REG_CONFIG, newMode);                                        //         IO_INPUT / IO_OUTPUT
+    setPin(pin, REG_CONFIG_PCA, newMode);                                        //         IO_INPUT / IO_OUTPUT
 }
 
 /*==============================================================================================================*
@@ -100,7 +100,7 @@ void PCA9536::setMode(pin_t pin, mode_t newMode) {                           // 
  *==============================================================================================================*/
 
 void PCA9536::setMode(mode_t newMode) {                                      // PARAMS: IO_INPUT / IO_OUTPUT
-    setReg(REG_CONFIG, newMode ? ALL_INPUT : ALL_OUTPUT);
+    setReg(REG_CONFIG_PCA, newMode ? ALL_INPUT : ALL_OUTPUT);
 }
 
 /*==============================================================================================================*
@@ -150,7 +150,7 @@ void PCA9536::setPolarity(pin_t pin, polarity_t newPolarity) {          // PARAM
 void PCA9536::setPolarity(polarity_t newPolarity) {                     // PARAMS: IO_NON_INVERTED / IO_INVERTED
     byte polarityVals, polarityMask, polarityNew;
     polarityVals = getReg(REG_POLARITY);
-    polarityMask = getReg(REG_CONFIG);
+    polarityMask = getReg(REG_CONFIG_PCA);
     polarityNew  = newPolarity ? ALL_INVERTED : ALL_NON_INVERTED;
     setReg(REG_POLARITY, (polarityVals & ~polarityMask) | (polarityNew & polarityMask));
 }
